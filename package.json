@@ -1,0 +1,20 @@
+{
+  "name": "wepack",
+  "version": "1.0.0",
+  "description": "---git\r  git branch  查看分支",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@e.coding.net:mario292/wepack/wepack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "css-loader": "^5.0.1",
+    "style-loader": "^2.0.0"
+  }
+}
