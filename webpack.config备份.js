@@ -7,7 +7,6 @@
 
 // resolve用来拼接绝对路径的方法
 const { resolve } = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   // webpack配置
@@ -19,7 +18,7 @@ module.exports = {
     filename: 'built.js',
     // 输出路径
     // __dirname nodejs的变量，代表当前文件的目录绝对路径
-    path: resolve(__dirname, 'built')
+    path: resolve(__dirname, 'build')
   },
   // loader的配置
   module: {
@@ -53,9 +52,6 @@ module.exports = {
   // plugins的配置
   plugins: [
     // 详细plugins的配置
-    new htmlWebpackPlugin({
-      template:'./src/index.html'
-    })
   ],
   // 模式
   mode: 'development', // 开发模式
