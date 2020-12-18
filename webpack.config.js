@@ -47,6 +47,25 @@ module.exports = {
           // 需要下载 less-loader和less
           'less-loader'
         ]
+      },{
+        // 处理不了 html 中的图片 需使用 html-loader
+        test:/\.(png|jpg|jif)$/,
+        loader:'url-loader',
+        options:{
+          // 图片小于8 k,就会被base64 处理
+          // 一般 8-12 k  为最佳
+          // 能减少请求，但是 体积会变大
+
+          limit:8*1024,
+          // 解决：关闭url-loader Es6模块化，使用commomjs 解析
+          esModule:false,
+          // 解决：打包名称过长，重命名
+          // 取 图片哈希值 10 位， [ext]:使用原来扩展名
+          name:'[hash:10].[ext]'
+        }
+      },{
+        test:/\.html$/,
+        loader:'html-loader'
       }
     ]
   },
