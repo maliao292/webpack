@@ -59,5 +59,12 @@
 webpack5使用html-webpack-plugin时会报错The 'compilation' argument must be an instance of Compilation，解决办法是把该插件的安装方法从npm i html-webpack-plugin -D改为npm i  html-webpack-plugin@next  -D
 ```
 
-
-
+# 错误解决
+```
+webpack5使用html-webpack-plugin时会报错
+The 'compilation' argument must be an instance of Compilation，
+解决办法是把该插件的安装方法从
+npm i html-webpack-plugin -D
+改为
+npm i  html-webpack-plugin@next  -D
+```

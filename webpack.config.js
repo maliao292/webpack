@@ -48,6 +48,7 @@ module.exports = {
           'less-loader'
         ]
       },{
+        // 处理css 中的背景图片
         // 处理不了 html 中的图片 需使用 html-loader
         test:/\.(png|jpg|jif)$/,
         loader:'url-loader',
@@ -64,8 +65,17 @@ module.exports = {
           name:'[hash:10].[ext]'
         }
       },{
+        // 处理 html 的图片 
+        // 
         test:/\.html$/,
         loader:'html-loader'
+      },{
+        // 处理其他资源
+        // 
+        // test:/\.html$/,
+        // 排除的
+        exclude:/\.(css|less|js|html|png|jpg|jif)/,
+        loader:'file-loader'
       }
     ]
   },
@@ -79,4 +89,18 @@ module.exports = {
   // 模式
   mode: 'development', // 开发模式
   // mode: 'production'
+
+  // 非 核心概念
+  // 开发服务器 devServer:自动化（自动编译、自动打开浏览器，自动刷新浏览器）
+  // 特点:只会在内存中编译打包，不会有任何输出
+  // 启动devServer指令为：npx webpack serve(webapck cli 5 使用 webpack-dev-server的启动命令，使用 npx webpack-dev-server 命令会报错)
+  devServer:{
+    // 运行的目录
+    contentBase:resolve(__dirname,'built'),
+    // 启动 gzip 压缩，体积更小，运行更快
+    compress:true,
+    // 端口号
+    port:3000
+  }
+
 }
