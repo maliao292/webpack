@@ -11,7 +11,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(css|less)$/,
         use: [
           // 创建style标签，将样式放入
           // 'style-loader', 
@@ -20,6 +20,21 @@ module.exports = {
           // 将css文件整合到js文件中
           'css-loader'
         ]
+      },{
+        test:/\.(jif|png|jpg)$/,
+        loader:'url-loader',
+        options:{
+          limit:8*1024,
+          name:'[hash:9].[ext]',
+          outputPath:'image',
+          esModule:false 
+        }
+      },{
+        test:/\.html$/,
+        loader:'html-loader',
+      },{
+        exclude:/\.(html|jpg|png|css|less|js)$/,
+        loader:'file-loader'
       }
     ]
   },

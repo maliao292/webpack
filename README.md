@@ -68,3 +68,7 @@ npm i html-webpack-plugin -D
 改为
 npm i  html-webpack-plugin@next  -D
 ```
+
+
+## 提取css 成单独文件
+### 插件: mini-css-extract-plugin

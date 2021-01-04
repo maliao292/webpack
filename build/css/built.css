@@ -1,8 +1,59 @@
-/* @import './static/iconFont/iconfont.css'; */
+@font-face {font-family: "iconfont";
+  src: url(094a1b88abdbae00eda12bc5c758296b.eot); /* IE9 */
+  src: url(094a1b88abdbae00eda12bc5c758296b.eot#iefix) format('embedded-opentype'), 
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAQkAAsAAAAACHwAAAPVAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqECIM7ATYCJAMUCwwABCAFhG0HWhtZB8gehY1jWcKIR5KvSIabCOj3a/vs7p9pgyQatfl0EiWJhUJo0DVFCY3pZC+Bi9xsg0lVU3Ojokig6dCESVPxcOc1OxP7iQg98+e9DMTB7fwcAw4Y+//vnTbF57VnucwxvE+dAKMJFNDeGBVYYG0sIA6kYXrhlAZiPwFNswIhh9mFlSCQyWEB4QTXyEGQ0coNhUElqFXMzRDugKuKq1m3AdwGtw9/EB4BiEoCOfboslSQ+twfW9mMkdHgcMCb7jAoSFgDMuGq0nqCHUXXsDXp9zh2gaZKFD+5nwWfq35sNRphwgPJm8pKPMwPLxFqIPPbYBfGMp9cg4h8ChCBzypE5m+rzPMSy+AmOrgH3hB57h9ERZJmOGYiiVDIE1uZcYTdEl+OnxgRsaUsEbLmAKI/P7LXjtlnDdYN4LYgUjid05cRrn6N2HR0Hjg3F/s4zD6xdPQAwm2QjCzo19hK5+eZucrdl/VXRi8xF2Ujc8z86Br9gqbar1IWUP/kSRXzvPLpS+RZ9dyclafe+HHukxdVz15Vy3YXy/Z2j+4Dzs1ekWRk//TtD4jlEo5Utmsfs3dkf+YSL97Ruze593ppLjVeWpP62dHczjTUyLcs+C27c929SY/XNNbAovtls9fuH/nrBfGC9fyP7q/RE+gDix7Ly5Y9Fg8i4o8L1pmt0x3X7TPbZ9g45R6p0u0rRQZrg5XZGP50LV1l2LatsdFQk1ETsr6iwPvgloQtWrhuwsGxAkL49eqnuGXLCz2DeRvGpcNNTJNjRW/WBi9uVUS9hzdGU+i9YtNzCiOjV7aE7vdVNugB94jvrLsA/69TKNsTgHT8WI4k/ezPmF9jZLNp4u+qHIAPwdWRwPv/OsOwWCXSmfdreR1LMhNIXcmk2HCJvdh+KdJIq5r4oc6hxWnkk875BJVJAlHdDCSVOXwmr0HRsg41lR1oWpWzuGWEwhayEFixHEDQdwSirhdI+u7gM9kAxdQvqOmHDU3HsVyzZSG4KIPC5DSmQhW9KK4kCbU20KKwsBzTdGrlVFoQUGQY1YEH0LDg0HwiByMwaooJHV2acJpWo2qKbEezwWGYVkuiOopsw5R0cCtN6+JDQtRVJwpWku0gcoCCkaNhVFAKvVA4JRJB7SrTRIXrl8NodNKSoxowKbMMhtIBbx0VJlhoB3yOlOiEuZVjOnTRCEejqaHUKKR2qGxgxmhVlITSVfdqg1GiBWsdENaJF4LKqbtKg5eXt7/jJmiS5y+BhbARDsJFeFC/biU72/AwNqEIslV1Ejo5rpCTPbicoDCirxUjNM0kr1kDAAAAAA==') format('woff2'),
+  url(4d7584939476c4bfd160254a2e986063.woff) format('woff'),
+  url(75ce4480621dc7627b873e376e644ba5.ttf) format('truetype'), 
+  url(2898accf258a28b8fa4abc120d91cf8e.svg#iconfont) format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shouji1:before {
+  content: "\e608";
+}
+
+.icon-nb-:before {
+  content: "\e605";
+}
+
+.icon-dunpaibaoxianrenzheng_o:before {
+  content: "\eba0";
+}
+
+.icon-shouji:before {
+  content: "\e655";
+}
+
+
 html,
 body {
     margin: 0;
     padding: 0;
     height: 100%;
     background-color: antiquewhite;
+}
+h1{
+    color: aqua;
+}
+.pics1{
+    width: 100px;
+    height: 100px;
+    background-image: url(image/218cff61b.png);
+}
+.pics2{
+    width: 100px;
+    height: 100px;
+    background-image: url(image/04bcce4da.png);
+}
+.pics3{
+    width: 100px;
+    height: 100px;
+    background-image: url(image/b8e3e7483.png);
 }
