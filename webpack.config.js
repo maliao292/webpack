@@ -1,46 +1,36 @@
-const { resolve } = require('path')
-const htmlWebpackPlugin = require('html-webpack-plugin')
+const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'built.js',
-    path: resolve(__dirname, 'built')
+    filename: 'js/built.js',
+    path: resolve(__dirname, 'build')
   },
   module: {
-    rules: [{
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader']
-    }, {
-      test: /\.less$/,
-      use: ['style-loader', 'css-loader', 'less-loader'],
-    }, {
-      test: /\.(png|jpg|jif)$/,
-      loader: 'url-loader',
-      options: {
-        limit: 8 * 1024,
-        name: '[hash:9].[ext]',
-        esModule: false,
-
-        outputPath: 'images'
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          // 创建style标签，将样式放入
+          // 'style-loader', 
+          // 这个loader取代style-loader。作用：提取js中的css成单独文件
+          MiniCssExtractPlugin.loader,
+          // 将css文件整合到js文件中
+          'css-loader'
+        ]
       }
-    }, {
-      test: /\.html$/,
-      loader: 'html-loader'
-    }, {
-      exclude: /\.(png|jpg|jif|less|css|html|js)$/,
-      loader: 'file-loader'
-    }]
+    ]
   },
   plugins: [
-    new htmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       template: './src/index.html'
+    }),
+    new MiniCssExtractPlugin({
+      // 对输出的css文件进行重命名
+      filename: 'css/built.css'
     })
   ],
-  mode: 'development',
-  devServer: {
-    contentBase: resolve(__dirname, 'built'),
-    open: true,
-    port: 300,
-    compress: true
-  }
-}
+  mode: 'development'
+};
