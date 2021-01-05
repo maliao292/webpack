@@ -72,3 +72,8 @@ npm i  html-webpack-plugin@next  -D
 
 ## 提取css 成单独文件
 ### 插件: mini-css-extract-plugin
+
+## css兼容性
+```
+postcss-loader 
+postcss-preset-env（帮助postcss找到package.json中browserslist里面的配置，通过配置加载指定的css的兼容性）```

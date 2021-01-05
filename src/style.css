@@ -4,15 +4,16 @@ h1 {
 .pics1 {
   width: 100px;
   height: 100px;
-  background-image: url(static/images/img_01@2x.png);
+  display: flex;
+  background-image: url(./static/images/img_01@2x.png);
 }
 .pics2 {
   width: 100px;
   height: 100px;
-  background-image: url(static/images/img_02@2x.png);
+  background-image: url(./static/images/img_02@2x.png);
 }
 .pics3 {
   width: 100px;
   height: 100px;
-  background-image: url(static/images/img_03@2x.png);
+  background-image: url(./static/images/img_03@2x.png);
 }
