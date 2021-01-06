@@ -1,8 +1,13 @@
 const { resolve } = require('path');
+// html 模板
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// css 兼容性
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// 引入压缩插件
+const OptimizeCssAssetsWebpackPiugin = require('optimize-css-assets-webpack-plugin')
 //  设置nodejs 环境变量
 process.env.NODE_ENV = 'development'
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -12,6 +17,23 @@ module.exports = {
   },
   module: {
     rules: [
+      // 语法检查
+      /**
+       * 注意：只检查自己写的源代码，第三方库不用检查
+       * 设置检查规则 eslint eslint-loader
+       * 在package.json 中 eslintConfig 设置 
+       * airbnb (规则)
+       * eslint-config-airbnb-base eslint eslint-plugin-import
+       */
+      {
+        test:/\.js$/,
+        exclude:/node_module/,
+        loader:"eslint-loader",
+        options:{
+          // 自动修复
+          fix:true
+        }
+      },
       {
         test: /\.(css|less)$/,
         use: [
@@ -58,7 +80,17 @@ module.exports = {
     new MiniCssExtractPlugin({
       // 对输出的css文件进行重命名
       // filename: 'css/built.css'
-    })
+    }),
+    new OptimizeCssAssetsWebpackPiugin()
   ],
-  mode: 'development'
+  mode: 'development',
+  devServer: {
+    // 运行的目录
+    contentBase: resolve(__dirname, 'built'),
+    // 启动 gzip 压缩，体积更小，运行更快
+    compress: true,
+    // 端口号
+    port: 3000,
+    open: true,
+  }
 };

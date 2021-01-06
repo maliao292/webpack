@@ -76,4 +76,13 @@ npm i  html-webpack-plugin@next  -D
 ## css兼容性
 ```
 postcss-loader 
-postcss-preset-env（帮助postcss找到package.json中browserslist里面的配置，通过配置加载指定的css的兼容性）```
+postcss-preset-env（帮助postcss找到package.json中browserslist里面的配置，通过配置加载指定的css的兼容性）
+
+```
+
+# 压缩css 插件：optimize-css-assets-webpack-plugin
+
+
+# esLint js 语法检查 eslint-loader
+## eslint-loader 依赖 eslint 库 ，npm i eslint-loader eslint
+

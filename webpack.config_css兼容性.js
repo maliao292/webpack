@@ -1,6 +1,10 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// 引入压缩插件
+const OptimizeCssAssetsWebpackPiugin = require('optimize-css-assets-webpack-plugin')
+//  设置nodejs 环境变量
+process.env.NODE_ENV = 'development'
 
 module.exports = {
   entry: './src/index.js',
@@ -20,7 +24,17 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           // 将css文件整合到js文件中
           'css-loader',
-          // 
+          // 使用 loader的默认配置
+          // postcss-loader
+          // 修改loader 的配置
+          {
+            loader:'postcss-loader',
+            options:{
+              ident:'postcss',
+              // postcss 插件
+              plugins:()=>[require('postcss-preset-env')()]
+            }
+          }
         ]
       },{
         test:/\.(jif|png|jpg)$/,
@@ -47,7 +61,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       // 对输出的css文件进行重命名
       // filename: 'css/built.css'
-    })
+    }),
+    new OptimizeCssAssetsWebpackPiugin()
   ],
   mode: 'development'
 };
