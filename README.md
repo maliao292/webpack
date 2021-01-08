@@ -85,4 +85,28 @@ postcss-preset-env（帮助postcss找到package.json中browserslist里面的配�
 
 # esLint js 语法检查 eslint-loader
 ## eslint-loader 依赖 eslint 库 ，npm i eslint-loader eslint
+## @babel/preset-env 基本的js兼容性问题
+## @babel/polyfill
+## 按需加载 corejs
+
+
+# js 和 html 压缩
+## 将mode改为 'production' 即可
+
+
+# 热模块替换 HMR: hot module replacement
+```
+作用：一个模块发生变化，只会重新打包这个模块
+样式文件可以使用 HMR 功能，style-loader 内部实现了~
+js 默认不能使用 HMR
+解决：
+html 默认不能使用 HMR ，同时 HTML不能热更新
+解决：
+修改entry: ['./src/index.js', './src/index.html'],
+
+```
+
+
+# source-map 
+1. devtool:'source-map '
 

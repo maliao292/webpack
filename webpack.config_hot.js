@@ -76,6 +76,4 @@ module.exports = {
     // 当修改了webpack配置
     hot: true
   },
-  devtool:'source-map'
-
 };
