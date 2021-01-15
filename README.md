@@ -86,7 +86,7 @@ postcss-preset-env（帮助postcss找到package.json中browserslist里面的配�
 # esLint js 语法检查 eslint-loader
 ## eslint-loader 依赖 eslint 库 ，npm i eslint-loader eslint
 ## @babel/preset-env 基本的js兼容性问题
-## @babel/polyfill
+## @babel/polyfill 全部兼容性 但是文件太大
 ## 按需加载 corejs
 
 
@@ -110,3 +110,14 @@ html 默认不能使用 HMR ，同时 HTML不能热更新
 # source-map 
 1. devtool:'source-map '
 
+
+# 优化
+## oneOf
+1. 以下loader 只会匹配一个
+2. 不能两个loader 同时处理同一个文件
+
+## 缓存
+### babel 缓存
+1. options=> cacheDirectory:true
+### 文件资源缓存 
+1. options=> cacheDirectory:true

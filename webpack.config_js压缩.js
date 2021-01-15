@@ -40,7 +40,9 @@ module.exports = {
               }
             ]
 
-          ]
+         
+          ],
+        cacheDirectory:true
         }
       },
       {

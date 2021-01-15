@@ -12,7 +12,7 @@
 
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
   entry: ['./src/index.js', './src/index.html'],
   output: {
@@ -23,26 +23,14 @@ module.exports = {
     rules: [
       // loader的配置
       {
-        test: /\.(css|less)$/,
-        use: [
-          // 创建style标签，将样式放入
-          // 'style-loader', 
-          // 这个loader取代style-loader。作用：提取js中的css成单独文件
-          MiniCssExtractPlugin.loader,
-          // 将css文件整合到js文件中
-          'css-loader',
-          // 使用 loader的默认配置
-          // postcss-loader
-          // 修改loader 的配置
-          {
-            loader:'postcss-loader',
-            options:{
-              ident:'postcss',
-              // postcss 插件
-              plugins:()=>[require('postcss-preset-env')()]
-            }
-          }
-        ]
+        // 处理less资源
+        test: /\.less$/,
+        use: ['style-loader', 'css-loader', 'less-loader']
+      },
+      {
+        // 处理css资源
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       },
       {
         // 处理图片资源
@@ -76,11 +64,7 @@ module.exports = {
     // plugins的配置
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    }),
-    new MiniCssExtractPlugin({
-      // 对输出的css文件进行重命名
-      // filename: 'css/built.css'
-    }),
+    })
   ],
   mode: 'development',
   devServer: {

@@ -1,2 +1,1 @@
-console.log(666)
-63啊
+console.log(123);console.log(666)()
