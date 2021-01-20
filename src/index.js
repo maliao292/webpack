@@ -1,4 +1,4 @@
-// import $ from 'jquery';
+import $ from 'jquery';
 import './index.css';
 import './style.less';
 import './print'
@@ -27,3 +27,5 @@ if(module.hot){
     console.log('监听print 变化')
   })
 }
+
+console.log($)

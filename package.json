@@ -57,5 +57,6 @@
   },
   "eslintConfig": {
     "extends": "airbnb-base"
-  }
+  },
+  "sideEffects":false
 }

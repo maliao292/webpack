@@ -119,5 +119,56 @@ html 默认不能使用 HMR ，同时 HTML不能热更新
 ## 缓存
 ### babel 缓存
 1. options=> cacheDirectory:true
+2. 让第二次 打包更快
 ### 文件资源缓存 
-1. options=> cacheDirectory:true
+1. 修改文件名 对生成 文件名添加hash值 例如：filename: 'css/built.[hash:10].css'
+  1. 问题：但是会影响其他未改变模块
+2. chunkhash：根据chunk生成的hash值。如果打包来源于同一个chunk,那么hash值就一样。
+  1. 问题：因为css是js中被引入的，所以属于同一个chunk
+3. contenthash: 根据文件内容生成hash.不同文件生成不同hash。例如：filename: 'css/built.[contenthash:10].css'
+
+
+## tree shaking 树摇 ，去掉 未引用的代码
+1. 使用方法
+  1. 必须使用 ES6 模块化语法
+  2. 开启 production 环境
+2. package.json "sideEffects":false
+  1. 所有代码没有副作用，都可以 tree shaking
+  2. 问题：可能会把css / @bable/polyfill 文件 干掉，不会被打包
+  3. 解决 "sideEffects":[*.css]
+
+## 代码分割 
+1. 多入口
+    1. ```
+    entry: {
+      // [, './src/index.html']
+      main: './src/index.js',
+      test: './src/test.js',
+    },
+    output: {
+      filename: 'js/[name].[hash:10].js',
+      path: resolve(__dirname, 'build')
+    }```
+2. 
+
+  1. ```  optimization:{
+    splitChunks:{
+      chunks:'all'
+    }
+  }```
+  2. 可以将node_modules 中代码单独打包一个chunk 最终输出
+  3. 自动分析多入口chunk 中，有没有公共文件。如果有会单独打包
+
+3. 通过js 代码，让某个文件被单独打包 同样适用 js 懒加载，
+  ```
+    import('./test').then(res=>{
+
+    })
+
+
+ ## 离线访问
+ ### PWA 插件
+
+ ## 忽略 包名
+
+ ## dll  
